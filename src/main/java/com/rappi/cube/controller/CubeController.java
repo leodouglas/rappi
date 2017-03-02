@@ -1,5 +1,6 @@
 package com.rappi.cube.controller;
 
+import com.rappi.cube.controller.response.QueryResponse;
 import com.rappi.cube.domain.Cube;
 import com.rappi.cube.exception.CubeNotCreatedException;
 import com.rappi.cube.service.CubeService;
@@ -30,12 +31,12 @@ public class CubeController {
     }
 
     @GetMapping
-    public String query(@RequestParam(value="x1") int x1,
+    public QueryResponse query(@RequestParam(value="x1") int x1,
                       @RequestParam(value="y1") int y1,
                       @RequestParam(value="z1") int z1,
                       @RequestParam(value="x2") int x2,
                       @RequestParam(value="y2") int y2,
                       @RequestParam(value="z2") int z2) throws CubeNotCreatedException {
-        return service.query(x1, y1, z1, x2, y2, z2).toString();
+        return new QueryResponse(service.query(x1, y1, z1, x2, y2, z2));
     }
 }

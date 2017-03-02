@@ -9,7 +9,6 @@ public class Cube {
 
     private int[][][] content;
 
-
     public Cube(int size) {
         content = new int[size][size][size];
     }
@@ -44,5 +43,9 @@ public class Cube {
             }
         }
         return sum;
+    }
+
+    public String getSize(){
+        return toString();
     }
 }

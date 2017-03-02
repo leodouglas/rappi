@@ -1,4 +1,7 @@
 buildscript {
+    ext {
+        cucumberVersion = '1.2.4'
+    }
     repositories {
         mavenCentral()
     }
@@ -28,6 +31,14 @@ dependencies {
     compile("javax.inject:javax.inject:1")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-devtools")
+    compile("org.apache.commons:commons-lang3:3.5")
+
+    testCompile("info.cukes:cucumber-java:${cucumberVersion}")
+    testCompile("info.cukes:cucumber-junit:${cucumberVersion}")
+    testCompile("info.cukes:cucumber-spring:${cucumberVersion}")
+    testCompile("io.rest-assured:rest-assured:3.0.2")
+    testCompile("io.rest-assured:json-path:3.0.2")
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
