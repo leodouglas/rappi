@@ -6,7 +6,7 @@ package com.rappi.cube.exception;
 public class CubeNotCreatedException extends CubeException {
 
     @Override
-    public String message() {
+    public String getMessage() {
         return "The cube wasn't created";
     }
 }

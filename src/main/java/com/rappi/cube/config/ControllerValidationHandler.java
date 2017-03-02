@@ -60,17 +60,17 @@ public class ControllerValidationHandler {
     }
 
     @ResponseBody
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(CubeException.class)
-    public Message handleException(CubeException ex) {
-        return new Message(MessageType.ERROR, ex.message());
-    }
-
-    @ResponseBody
     @ResponseStatus(HttpStatus.FORBIDDEN)
     @ExceptionHandler(AccessDeniedException.class)
     public Message handleExceptionAccessDenied(AccessDeniedException ex) {
         return new Message(MessageType.ERROR, ex.getCause().toString());
+    }
+
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(Exception.class)
+    public Message genericException(Exception ex) {
+        return new Message(MessageType.ERROR, ex.getMessage());
     }
 }
 
